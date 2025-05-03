@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قالب‌های پزشکی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .template-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .template-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .template-info {
+            padding: 1.5rem;
+        }
+
+        .template-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .template-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .template-feature {
+            background: var(--light-gray);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .template-price {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .back-btn i {
+            margin-left: 0.5rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: white;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .separator {
+            height: 30px;
+            width: 1px;
+            background-color: #ddd;
+            margin: 0 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .contact-name {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            direction: ltr;
+        }
+
+        .contact-info i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .nav-links a i {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover i {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .nav-links a::after {
+            display: none;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 999;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--gradient);
+            color: white;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .mobile-menu-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .mobile-menu-content {
+            padding: 1rem;
+        }
+
+        .mobile-menu-content a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-menu-content a:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .mobile-menu-content a i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            transition: transform 0.3s;
+        }
+
+        .mobile-menu-content a:hover i {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-buttons {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-container {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 468px) {
+            .nav-buttons {
+                display: none;
+            }
+
+            .nav-container {
+                justify-content: flex-start;
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-btn {
+                position: absolute;
+                right: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                margin-right: 1rem;
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">قالب‌های وب</div>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i></a>
+                <div class="separator"></div>
+                <div class="contact-info">
+                    <span class="contact-name">
+                        <i class="fas fa-user-tie"></i>
+                        عرفان باقرزاده
+                    </span>
+                    <div class="separator"></div>
+                    <span class="contact-phone">
+                        <i class="fas fa-phone"></i>
+                        09362205838
+                    </span>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">ورود</a>
+                <a href="login.html" class="btn btn-primary">ثبت‌نام</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3>منو</h3>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-content">
+            <a href="index.html#features">
+                <i class="fas fa-star"></i>
+                ویژگی‌ها
+            </a>
+            <a href="index.html#templates">
+                <i class="fas fa-palette"></i>
+                قالب‌ها
+            </a>
+            <a href="index.html#demo">
+                <i class="fas fa-play-circle"></i>
+                نمونه کارها
+            </a>
+            <a href="request.html">
+                <i class="fas fa-file-alt"></i>
+                درخواست سایت
+            </a>
+            <a href="tutorials.html">
+                <i class="fas fa-graduation-cap"></i>
+                آموزش‌ها
+            </a>
+            <a href="index.html#footer">
+                <i class="fas fa-envelope"></i>
+                تماس با ما
+            </a>
+            <a href="consultation.html">
+                <i class="fas fa-comments"></i>
+                مشاوره رایگان
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-right"></i>
+            بازگشت به صفحه اصلی
+        </a>
+        
+        <div class="header">
+            <h1>قالب‌های پزشکی</h1>
+            <p>انتخاب از میان بهترین قالب‌های وبسایت برای مراکز پزشکی و درمانی</p>
+        </div>
+
+        <div class="templates-grid">
+            <div class="template-card" data-aos="fade-up">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب مطب پزشک">
+                </div>
+                <div class="template-info">
+                    <h3>قالب مطب پزشک</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">پروفایل پزشک</span>
+                    </div>
+                    <div class="template-price">۲,۸۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب کلینیک تخصصی">
+                </div>
+                <div class="template-info">
+                    <h3>قالب کلینیک تخصصی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">پزشکان متخصص</span>
+                    </div>
+                    <div class="template-price">۳,۲۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب بیمارستان">
+                </div>
+                <div class="template-info">
+                    <h3>قالب بیمارستان</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">بخش‌های تخصصی</span>
+                    </div>
+                    <div class="template-price">۳,۵۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب آزمایشگاه">
+                </div>
+                <div class="template-info">
+                    <h3>قالب آزمایشگاه</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">نتیجه آنلاین</span>
+                    </div>
+                    <div class="template-price">۲,۹۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب دندانپزشکی">
+                </div>
+                <div class="template-info">
+                    <h3>قالب دندانپزشکی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">نمونه کارها</span>
+                    </div>
+                    <div class="template-price">۳,۰۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب فیزیوتراپی">
+                </div>
+                <div class="template-info">
+                    <h3>قالب فیزیوتراپی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">خدمات تخصصی</span>
+                    </div>
+                    <div class="template-price">۲,۸۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب روانپزشکی">
+                </div>
+                <div class="template-info">
+                    <h3>قالب روانپزشکی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">مشاوره آنلاین</span>
+                    </div>
+                    <div class="template-price">۳,۱۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="700">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب ماساژ درمانی">
+                </div>
+                <div class="template-info">
+                    <h3>قالب ماساژ درمانی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">خدمات تخصصی</span>
+                    </div>
+                    <div class="template-price">۲,۷۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="800">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب بینایی سنجی">
+                </div>
+                <div class="template-info">
+                    <h3>قالب بینایی سنجی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">محصولات</span>
+                    </div>
+                    <div class="template-price">۲,۹۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+
+            <div class="template-card" data-aos="fade-up" data-aos-delay="900">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب کلینیک زیبایی">
+                </div>
+                <div class="template-info">
+                    <h3>قالب کلینیک زیبایی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">نمونه کارها</span>
+                    </div>
+                    <div class="template-price">۳,۳۰۰,۰۰۰ تومان</div>
+                    <a href="#" class="btn">مشاهده دمو</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    </script>
+</body>
+</html> 

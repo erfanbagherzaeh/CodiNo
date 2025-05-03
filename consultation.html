@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاوره رایگان طراحی سایت | عرفان باقرزاده</title>
+    <meta name="description" content="ثبت‌نام برای مشاوره رایگان طراحی و توسعه وب سایت. مشاوره تخصصی در زمینه طراحی سایت، سئو و بازاریابی دیجیتال.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-btn {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn i {
+            transition: transform 0.3s;
+        }
+
+        .back-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .consultation-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+            flex: 1;
+        }
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .consultation-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-header p {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .consultation-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .user-info {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .user-info.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .user-info-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .user-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .user-details p {
+            color: #666;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .consultation-topics {
+            display: none;
+        }
+
+        .consultation-topics.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .topic-card {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .topic-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .topic-card.selected {
+            border-color: var(--accent-color);
+            background: rgba(52, 152, 219, 0.05);
+        }
+
+        .topic-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .topic-card i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .consultation-header h1 {
+                font-size: 2rem;
+            }
+
+            .consultation-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: white;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 999;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--gradient);
+            color: white;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .mobile-menu-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .mobile-menu-content {
+            padding: 1rem;
+        }
+
+        .mobile-menu-content a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-menu-content a:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .mobile-menu-content a i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            transition: transform 0.3s;
+        }
+
+        .mobile-menu-content a:hover i {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-buttons {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-container {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 468px) {
+            .nav-buttons {
+                display: none;
+            }
+
+            .nav-container {
+                justify-content: flex-start;
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-btn {
+                position: absolute;
+                right: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                margin-right: 1rem;
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">قالب‌های وب</div>
+            <div class="nav-links">
+                <a href="index.html#features">ویژگی‌ها</a>
+                <a href="index.html#templates">قالب‌ها</a>
+                <a href="index.html#demo">نمونه کارها</a>
+                <a href="request.html">درخواست سایت</a>
+                <a href="tutorials.html">آموزش‌ها</a>
+                <a href="index.html#footer">تماس</a>
+                <a href="consultation.html">مشاوره رایگان</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">ورود</a>
+                <a href="login.html" class="btn btn-primary">ثبت‌نام</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3>منو</h3>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-content">
+            <a href="index.html#features">
+                <i class="fas fa-star"></i>
+                ویژگی‌ها
+            </a>
+            <a href="index.html#templates">
+                <i class="fas fa-palette"></i>
+                قالب‌ها
+            </a>
+            <a href="index.html#demo">
+                <i class="fas fa-play-circle"></i>
+                نمونه کارها
+            </a>
+            <a href="request.html">
+                <i class="fas fa-file-alt"></i>
+                درخواست سایت
+            </a>
+            <a href="tutorials.html">
+                <i class="fas fa-graduation-cap"></i>
+                آموزش‌ها
+            </a>
+            <a href="index.html#footer">
+                <i class="fas fa-envelope"></i>
+                تماس با ما
+            </a>
+            <a href="consultation.html">
+                <i class="fas fa-comments"></i>
+                مشاوره رایگان
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">قالب‌های وب</div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i>
+                بازگشت به صفحه اصلی
+            </a>
+        </div>
+    </header>
+
+    <main class="consultation-container">
+        <div class="consultation-header">
+            <h1>مشاوره رایگان طراحی سایت</h1>
+            <p>فرم زیر را پر کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند</p>
+        </div>
+
+        <div class="user-info" id="userInfo">
+            <div class="user-info-header">
+                <div class="user-avatar" id="userAvatar">U</div>
+                <div class="user-details">
+                    <h3 id="userName">نام کاربر</h3>
+                    <p id="userPhone">شماره تماس</p>
+                </div>
+            </div>
+        </div>
+
+        <form class="consultation-form" id="personalInfoForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">نام و نام خانوادگی</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">شماره تماس</label>
+                    <input type="tel" id="phone" required pattern="[0-9]{11}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">ایمیل (اختیاری)</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="business">نوع کسب و کار</label>
+                    <select id="business" required>
+                        <option value="">انتخاب کنید</option>
+                        <option value="restaurant">رستوران و کافه</option>
+                        <option value="shop">فروشگاه</option>
+                        <option value="service">خدمات</option>
+                        <option value="education">آموزشگاه</option>
+                        <option value="medical">پزشکی</option>
+                        <option value="other">سایر</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">مرحله بعد</button>
+        </form>
+
+        <form class="consultation-topics" id="consultationTopicsForm">
+            <h2 style="margin-bottom: 2rem; color: var(--primary-color);">موضوعات مشاوره</h2>
+            <div class="topic-grid">
+                <div class="topic-card" data-topic="design">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>طراحی سایت</h3>
+                    <p>مشاوره در زمینه طراحی رابط کاربری و تجربه کاربری</p>
+                </div>
+                <div class="topic-card" data-topic="development">
+                    <i class="fas fa-code"></i>
+                    <h3>توسعه وب</h3>
+                    <p>مشاوره در زمینه برنامه‌نویسی و پیاده‌سازی سایت</p>
+                </div>
+                <div class="topic-card" data-topic="seo">
+                    <i class="fas fa-search"></i>
+                    <h3>سئو و بهینه‌سازی</h3>
+                    <p>مشاوره در زمینه بهینه‌سازی سایت برای موتورهای جستجو</p>
+                </div>
+                <div class="topic-card" data-topic="marketing">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>بازاریابی دیجیتال</h3>
+                    <p>مشاوره در زمینه تبلیغات و بازاریابی آنلاین</p>
+                </div>
+                <div class="topic-card" data-topic="ecommerce">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>فروشگاه اینترنتی</h3>
+                    <p>مشاوره در زمینه راه‌اندازی فروشگاه آنلاین</p>
+                </div>
+                <div class="topic-card" data-topic="content">
+                    <i class="fas fa-pen"></i>
+                    <h3>تولید محتوا</h3>
+                    <p>مشاوره در زمینه تولید محتوای حرفه‌ای برای سایت</p>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="description">توضیحات تکمیلی</label>
+                <textarea id="description" placeholder="لطفاً توضیح دهید که چه نوع مشاوره‌ای نیاز دارید و چه سوالاتی دارید"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">ثبت درخواست مشاوره</button>
+        </form>
+    </main>
+
+    <script>
+        const personalInfoForm = document.getElementById('personalInfoForm');
+        const consultationTopicsForm = document.getElementById('consultationTopicsForm');
+        const userInfo = document.getElementById('userInfo');
+        const userName = document.getElementById('userName');
+        const userPhone = document.getElementById('userPhone');
+        const userAvatar = document.getElementById('userAvatar');
+        const topicCards = document.querySelectorAll('.topic-card');
+
+        // Handle personal info form submission
+        personalInfoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Update user info display
+            userName.textContent = name;
+            userPhone.textContent = phone;
+            userAvatar.textContent = name.charAt(0);
+            
+            // Show user info and consultation topics form
+            userInfo.classList.add('active');
+            personalInfoForm.style.display = 'none';
+            consultationTopicsForm.classList.add('active');
+        });
+
+        // Handle topic selection
+        topicCards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('selected');
+            });
+        });
+
+        // Handle consultation topics form submission
+        consultationTopicsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get selected topics
+            const selectedTopics = Array.from(document.querySelectorAll('.topic-card.selected'))
+                .map(card => card.querySelector('h3').textContent);
+            
+            // Show success message
+            alert('درخواست مشاوره شما با موفقیت ثبت شد. کارشناسان ما به زودی با شما تماس خواهند گرفت.');
+            
+            // Reset forms
+            personalInfoForm.reset();
+            consultationTopicsForm.reset();
+            userInfo.classList.remove('active');
+            personalInfoForm.style.display = 'block';
+            consultationTopicsForm.classList.remove('active');
+            topicCards.forEach(card => card.classList.remove('selected'));
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    </script>
+</body>
+</html> 

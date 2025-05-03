@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت‌نام در دوره‌های Frontend | عرفان باقرزاده</title>
+    <meta name="description" content="ثبت‌نام در دوره‌های آموزشی Frontend شامل HTML, CSS, JavaScript و React. آموزش‌های عملی و پروژه‌محور با پشتیبانی کامل.">
+    <meta name="keywords" content="ثبت‌نام دوره Frontend, آموزش برنامه‌نویسی, دوره HTML, دوره CSS, دوره JavaScript, دوره React, آموزش طراحی سایت">
+    <meta name="author" content="عرفان باقرزاده">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ثبت‌نام در دوره‌های Frontend">
+    <meta property="og:description" content="ثبت‌نام در دوره‌های آموزشی Frontend شامل HTML, CSS, JavaScript و React">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://erfanbagherzadeh.com/course-registration">
+    <meta property="og:image" content="https://erfanbagherzadeh.com/images/registration-og.jpg">
+    <link rel="canonical" href="https://erfanbagherzadeh.com/course-registration">
+    <link rel="alternate" hreflang="fa" href="https://erfanbagherzadeh.com/course-registration">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "دوره‌های آموزشی Frontend",
+        "description": "ثبت‌نام در دوره‌های آموزشی Frontend شامل HTML, CSS, JavaScript و React",
+        "provider": {
+            "@type": "Person",
+            "name": "عرفان باقرزاده",
+            "jobTitle": "مدرس برنامه‌نویسی و توسعه‌دهنده وب"
+        },
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "price": "0",
+            "priceCurrency": "IRR"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .registration-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .registration-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .registration-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .course-type-banner {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .course-type-banner i {
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 1rem 0 2rem;
+            padding: 1rem;
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(52, 152, 219, 0.1);
+        }
+
+        .contact-info p {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 500;
+        }
+
+        .contact-info .phone {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+            direction: ltr;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 20px;
+            margin-top: 0.5rem;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .contact-info .phone i {
+            margin-left: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .form-control.error {
+            border-color: var(--secondary-color);
+        }
+
+        .error-message {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .form-control.error + .error-message {
+            display: block;
+        }
+
+        .course-selection {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .frontend-banner {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frontend-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z"/></svg>');
+            opacity: 0.1;
+        }
+
+        .frontend-banner h2 {
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .frontend-banner .frontend {
+            font-family: 'Arial', sans-serif;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #f1c40f;
+        }
+
+        .course-selection h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .submit-btn.valid {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .registration-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-picture-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-color);
+            position: relative;
+            cursor: pointer;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-picture-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .profile-picture-container i {
+            font-size: 3rem;
+            color: #ccc;
+        }
+
+        .profile-picture-container input[type="file"] {
+            display: none;
+        }
+
+        .profile-picture-container:hover {
+            border-color: var(--primary-color);
+        }
+
+        .profile-picture-container:hover i {
+            color: var(--accent-color);
+        }
+
+        .profile-picture-text {
+            margin-top: 1rem;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="registration-header">
+            <h1>ثبت‌نام در دوره آموزشی</h1>
+            <p>لطفاً فرم زیر را با دقت پر کنید تا با شما تماس بگیریم</p>
+            <div class="course-type-banner">
+                <i class="fas fa-user-graduate"></i>
+                آموزش به صورت حضوری (خصوصی)
+            </div>
+            <div class="contact-info">
+                <p>برای ثبت نام بعد از پرکردن فرم با ما تماس بگیرید</p>
+                <div class="phone">
+                    <i class="fas fa-phone"></i>
+                    09362205838
+                </div>
+            </div>
+        </div>
+
+        <div class="registration-form">
+            <div class="frontend-banner">
+                <h2>آموزش طراحی سایت <span class="frontend">Frontend</span></h2>
+            </div>
+
+            <div class="course-selection">
+                <h3>دوره انتخاب شده:</h3>
+                <p id="selected-course">در حال بارگذاری...</p>
+            </div>
+
+            <form id="registrationForm">
+                <div class="profile-picture">
+                    <div class="profile-picture-container" id="profilePictureContainer">
+                        <i class="fas fa-user"></i>
+                        <img id="profilePicture" src="" alt="تصویر پروفایل">
+                        <input type="file" id="profilePictureInput" accept="image/*">
+                    </div>
+                    <div class="profile-picture-text">برای آپلود تصویر کلیک کنید</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">نام و نام خانوادگی</label>
+                    <input type="text" id="name" class="form-control" required>
+                    <div class="error-message">لطفاً نام و نام خانوادگی خود را وارد کنید</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">تاریخ تولد</label>
+                    <input type="date" id="birthdate" class="form-control" required>
+                    <div class="error-message">لطفاً تاریخ تولد خود را وارد کنید</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">آدرس محل سکونت</label>
+                    <textarea id="address" class="form-control" rows="3" required></textarea>
+                    <div class="error-message">لطفاً آدرس محل سکونت خود را وارد کنید</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">شماره تماس</label>
+                    <input type="tel" id="phone" class="form-control" required pattern="[0-9]{11}">
+                    <div class="error-message">لطفاً شماره تماس معتبر وارد کنید (11 رقم)</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">ایمیل (اختیاری)</label>
+                    <input type="email" id="email" class="form-control">
+                    <div class="error-message">لطفاً ایمیل معتبر وارد کنید</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">سطح تجربه در برنامه‌نویسی</label>
+                    <select id="experience" class="form-control" required>
+                        <option value="">انتخاب کنید</option>
+                        <option value="beginner">مبتدی</option>
+                        <option value="intermediate">متوسط</option>
+                        <option value="advanced">پیشرفته</option>
+                    </select>
+                    <div class="error-message">لطفاً سطح تجربه خود را انتخاب کنید</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">پیام (اختیاری)</label>
+                    <textarea id="message" class="form-control" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">ثبت درخواست</button>
+            </form>
+
+            <a href="tutorials.html" class="back-link">
+                <i class="fas fa-arrow-right"></i>
+                بازگشت به صفحه دوره‌ها
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Profile picture upload functionality
+        const profilePictureContainer = document.getElementById('profilePictureContainer');
+        const profilePictureInput = document.getElementById('profilePictureInput');
+        const profilePicture = document.getElementById('profilePicture');
+
+        profilePictureContainer.addEventListener('click', () => {
+            profilePictureInput.click();
+        });
+
+        profilePictureInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    profilePicture.src = e.target.result;
+                    profilePicture.style.display = 'block';
+                    profilePictureContainer.querySelector('i').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Get course name from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseId = urlParams.get('course');
+        
+        // Map course IDs to their Persian names
+        const courseNames = {
+            'html-css': 'HTML & CSS',
+            'less-sass': 'LESS & SASS',
+            'animation': 'Animation',
+            'responsive': 'Responsive',
+            'tailwind': 'Tailwind CSS',
+            'bootstrap': 'Bootstrap',
+            'material-ui': 'Material UI',
+            'git-github': 'Git & GitHub',
+            'grid-flex': 'Grid & Flex',
+            'javascript': 'JavaScript',
+            'react': 'React',
+            'react-api': 'React API'
+        };
+
+        // Display selected course
+        const selectedCourseElement = document.getElementById('selected-course');
+        if (courseId && courseNames[courseId]) {
+            selectedCourseElement.textContent = courseNames[courseId];
+        } else {
+            selectedCourseElement.textContent = 'دوره انتخاب نشده است';
+        }
+
+        // Form validation
+        const form = document.getElementById('registrationForm');
+        const inputs = form.querySelectorAll('input, select');
+        const submitBtn = form.querySelector('.submit-btn');
+
+        function validateInput(input) {
+            if (input.required) {
+                if (input.value.trim() === '') {
+                    input.classList.add('error');
+                    return false;
+                }
+                
+                if (input.type === 'tel' && !/^[0-9]{11}$/.test(input.value)) {
+                    input.classList.add('error');
+                    return false;
+                }
+                
+                if (input.type === 'email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+                    input.classList.add('error');
+                    return false;
+                }
+
+                if (input.id === 'birthdate' && !input.value) {
+                    input.classList.add('error');
+                    return false;
+                }
+            }
+            
+            input.classList.remove('error');
+            return true;
+        }
+
+        function validateForm() {
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!validateInput(input)) {
+                    isValid = false;
+                }
+            });
+            
+            submitBtn.classList.toggle('valid', isValid);
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                validateInput(input);
+                validateForm();
+            });
+            
+            input.addEventListener('blur', () => {
+                validateInput(input);
+                validateForm();
+            });
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (submitBtn.classList.contains('valid')) {
+                // Here you would typically send the form data to your server
+                alert('درخواست شما با موفقیت ثبت شد. به زودی با شما تماس خواهیم گرفت.');
+                this.reset();
+                submitBtn.classList.remove('valid');
+            }
+        });
+    </script>
+</body>
+</html> 

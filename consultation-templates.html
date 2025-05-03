@@ -1,0 +1,83 @@
+<style>
+    /* Update contact info styles */
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .separator {
+        height: 30px;
+        width: 1px;
+        background-color: #ddd;
+        margin: 0 1rem;
+    }
+
+    .contact-info {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--text-color);
+    }
+
+    .contact-name {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .contact-phone {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        direction: ltr;
+    }
+
+    .contact-info i {
+        font-size: 1.2rem;
+        color: var(--accent-color);
+    }
+
+    .nav-links a i {
+        font-size: 1.4rem;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover i {
+        color: var(--accent-color);
+        transform: scale(1.1);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+</style>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">قالب‌های وب</div>
+        <div class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i></a>
+            <div class="separator"></div>
+            <div class="contact-info">
+                <span class="contact-name">
+                    <i class="fas fa-user-tie"></i>
+                    عرفان باقرزاده
+                </span>
+                <div class="separator"></div>
+                <span class="contact-phone">
+                    <i class="fas fa-phone"></i>
+                    09362205838
+                </span>
+            </div>
+        </div>
+        <div class="nav-buttons">
+            <a href="login.html" class="btn btn-outline">ورود</a>
+            <a href="login.html" class="btn btn-primary">ثبت‌نام</a>
+        </div>
+    </div>
+</nav> 

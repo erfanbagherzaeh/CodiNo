@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما - کدینو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #181924;
+            --secondary: #23243a;
+            --accent: #ff4d00;
+            --text: #fff;
+            --muted: #bdbdbd;
+            --card-bg: #23243a;
+            --border: #33354a;
+            --gradient: linear-gradient(120deg, #ff4d00 0%, #00e0ff 100%);
+        }
+        body {
+            background: var(--primary);
+            color: var(--text);
+            font-family: 'Vazir', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .about-hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 5vw 10vw 2vw 10vw;
+            background: radial-gradient(ellipse at 70% 10%, #2e2f4a 60%, transparent 100%), var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://svgshare.com/i/13kF.svg') no-repeat right top;
+            background-size: 40vw;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .about-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 0 0 1.5rem 0;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+        .about-hero .subtitle {
+            background: var(--gradient);
+            color: #fff;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .about-hero p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+        .about-hero .cta-btn {
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            border-radius: 1.5rem;
+            padding: 0.7rem 2.2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 16px 0 #0002;
+            transition: background 0.2s;
+        }
+        .about-hero .cta-btn:hover {
+            background: linear-gradient(120deg, #00e0ff 0%, #ff4d00 100%);
+        }
+        .about-section {
+            padding: 0 10vw 4vw 10vw;
+        }
+        .about-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        .about-section .desc {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1.2rem;
+            padding: 2rem 1.5rem;
+            flex: 1 1 220px;
+            min-width: 220px;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-shadow: 0 2px 16px 0 #0001;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+        .service-card:hover {
+            border: 1.5px solid var(--accent);
+            box-shadow: 0 4px 32px 0 #ff4d0033;
+        }
+        .service-card i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin: 0 0 0.7rem 0;
+            color: #fff;
+        }
+        .service-card p {
+            color: var(--muted);
+            font-size: 1rem;
+            margin: 0;
+        }
+        .portfolio {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .portfolio-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 16px 0 #0002;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px 0 #00e0ff33;
+        }
+        .portfolio-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+        .portfolio-card .info {
+            padding: 1.2rem;
+        }
+        .portfolio-card .info h4 {
+            margin: 0 0 0.5rem 0;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        .portfolio-card .info p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .footer-minimal {
+            background: #181924;
+            color: #bdbdbd;
+            text-align: center;
+            padding: 2rem 0 1rem 0;
+            font-size: 0.95rem;
+            border-top: 1px solid #23243a;
+            margin-top: 4rem;
+        }
+        .footer-minimal .footer-social {
+            margin: 1rem 0 0.5rem 0;
+        }
+        .footer-minimal .footer-social a {
+            color: #bdbdbd;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+        .footer-minimal .footer-social a:hover {
+            color: var(--accent);
+        }
+        @media (max-width: 900px) {
+            .about-hero, .about-section { padding: 5vw 4vw; }
+        }
+        @media (max-width: 600px) {
+            .about-hero h1 { font-size: 2rem; }
+            .about-section h2 { font-size: 1.3rem; }
+            .services { flex-direction: column; gap: 1.2rem; }
+            .portfolio-card img { height: 120px; }
+        }
+        .codino-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0 2.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem 2rem;
+        }
+        .codino-features li {
+            background: #22243a;
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            color: #fff;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 2px 12px 0 #0001;
+            transition: background 0.2s;
+        }
+        .codino-features li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            min-width: 1.5rem;
+        }
+        .codino-features li:hover {
+            background: #292b45;
+        }
+        .about-modern-header {
+            background: rgba(245, 247, 250, 0.85);
+            border-radius: 2.5rem;
+            box-shadow: 0 8px 32px #0001;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 4vw 2.5rem 4vw;
+            margin: 2.5rem auto 3rem auto;
+            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(18px) saturate(140%);
+            -webkit-backdrop-filter: blur(18px) saturate(140%);
+            border: 1.5px solid rgba(255,255,255,0.18);
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .profile-pic-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4d00 0%, #00e0ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 24px #ff4d0033;
+        }
+        .profile-pic {
+            width: 104px;
+            height: 104px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
+        .play-btn {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background: #ff4d00;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px #ff4d0033;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .play-btn:hover {
+            background: #00e0ff;
+        }
+        .header-info h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #23243a;
+            margin: 0 0 0.5rem 0;
+        }
+        .header-info h2 {
+            font-size: 1.2rem;
+            color: #ff4d00;
+            margin: 0 0 1rem 0;
+            font-weight: 700;
+        }
+        .header-info p {
+            color: #6b6b8a;
+            font-size: 1.05rem;
+            max-width: 350px;
+            margin: 0;
+        }
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1.5rem;
+        }
+        .header-socials {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+        .header-socials a {
+            background: #fff;
+            color: #ff4d00;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 8px #ff4d0033;
+            transition: background 0.2s, color 0.2s;
+        }
+        .header-socials a:hover {
+            background: #ff4d00;
+            color: #fff;
+        }
+        .header-cards {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .header-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px #0001;
+            padding: 1.2rem 1.5rem;
+            min-width: 120px;
+            text-align: center;
+            color: #23243a;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .header-card span {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .header-card h3 {
+            font-size: 1.25rem;
+            font-family: 'Vazir', Tahoma, sans-serif;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            margin: 0 0 0.3rem 0;
+            color: #23243a;
+        }
+        .header-card p {
+            font-size: 0.95rem;
+            margin: 0;
+            color: #6b6b8a;
+        }
+        .header-card.card1 {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        .header-card.card2 {
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+        }
+        .header-card.card3 {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        }
+        .header-card:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 8px 32px #00e0ff33;
+        }
+        .card-popup {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.95);
+            min-width: 120px;
+            background: #fff;
+            color: #23243a;
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px #0002;
+            padding: 1rem 1.2rem 0.7rem 1.2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s, transform 0.25s;
+            z-index: 10;
+        }
+        .header-card:hover .card-popup {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) scale(1);
+        }
+        .popup-arrow {
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22px;
+            height: 12px;
+            overflow: hidden;
+        }
+        .popup-arrow::after {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: -8px;
+            transform: translateX(-50%) rotate(45deg);
+            box-shadow: 0 2px 8px #0001;
+        }
+        .popup-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            height: 48px;
+            width: 36px;
+            background: #f6f7fb;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 4px #0001;
+            margin: 0 auto;
+        }
+        .bar {
+            width: 18px;
+            background: linear-gradient(135deg, #ff4d00 0%, #00e0ff 100%);
+            border-radius: 0.4rem 0.4rem 0 0;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            box-shadow: 0 2px 8px #ff4d0033;
+            transition: height 0.3s;
+        }
+        @media (max-width: 900px) {
+            .about-modern-header {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 2rem 2vw 2rem 2vw;
+            }
+            .header-left {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+            .header-right {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+            .header-cards {
+                gap: 0.7rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .about-modern-header {
+                padding: 1.2rem 0.5vw 1.2rem 0.5vw;
+                border-radius: 1.2rem;
+            }
+            .profile-pic-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+            .profile-pic {
+                width: 68px;
+                height: 68px;
+            }
+            .header-info h1 {
+                font-size: 1.3rem;
+            }
+            .header-info h2 {
+                font-size: 1rem;
+            }
+            .header-cards {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+        }
+        .bar-chart.multi-bar {
+            width: 70px;
+            height: 54px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 6px;
+            background: #f6f7fb;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 4px #0001;
+            margin: 0 auto;
+            padding: 0 6px;
+        }
+        .bar-chart.multi-bar .bar {
+            width: 12px;
+            font-size: 0.8rem;
+            border-radius: 0.4rem 0.4rem 0 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 2px 8px #ff4d0033;
+            transition: height 0.3s;
+            background: #bbb;
+        }
+        .bar-low {
+            background: linear-gradient(135deg, #ff4d4d 0%, #ffb199 100%);
+        }
+        .bar-mid {
+            background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+            color: #23243a;
+        }
+        .bar-high {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        .bar-top {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+        }
+        .ceo-title {
+            font-family: 'Vazir', Tahoma, sans-serif;
+            font-size: 2.1rem;
+            font-weight: 900;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 0.5px;
+            text-align: right;
+        }
+        .ceo-title .ceo-black {
+            color: #23243a;
+        }
+        .ceo-title .ceo-red {
+            color: #ff2222;
+        }
+        .footer {
+            background: rgba(245,247,250,0.85);
+            backdrop-filter: blur(8px);
+            border-top: 1.5px solid #e0e0e0;
+            color: #23243a;
+            padding: 3rem 10vw 1rem;
+            margin-top: 4rem;
+            box-shadow: 0 8px 32px #0001;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h3 {
+            color: #23243a;
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+        .footer-section p {
+            color: #444;
+            margin: 0.7rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+        .footer-section p i {
+            color: #ff4d00;
+            font-size: 1.1rem;
+        }
+        .footer-socials .footer-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .footer-socials .footer-icons a {
+            background: #fff;
+            color: #ff4d00;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 8px #ff4d0033;
+            transition: background 0.2s, color 0.2s;
+        }
+        .footer-socials .footer-icons a:hover {
+            background: #ff4d00;
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            color: #888;
+            font-size: 0.98rem;
+        }
+        @media (max-width: 900px) {
+            .footer {
+                padding: 2rem 4vw 1rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        .footer, .footer * {
+            font-family: 'Vazir', Tahoma, sans-serif !important;
+        }
+        .footer .fa, .footer .fab, .footer .fas, .footer .far, .footer .fal, .footer .fad {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', 'FontAwesome', sans-serif !important;
+            font-weight: 900 !important;
+        }
+        .header-home-menu {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            left: auto;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .home-icon {
+            background: #fff;
+            color: #ff4d00;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 8px #ff4d0033;
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            text-decoration: none;
+        }
+        .home-icon:hover {
+            background: #ff4d00;
+            color: #fff;
+        }
+        .home-dropdown {
+            left: auto;
+            right: 0;
+            top: 44px;
+            margin-top: 0;
+            display: none;
+            flex-direction: column;
+            min-width: 150px;
+            background: rgba(245,247,250,0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px #0002;
+            padding: 0.7rem 0.5rem;
+            position: absolute;
+        }
+        .header-home-menu:hover .home-dropdown,
+        .header-home-menu:focus-within .home-dropdown {
+            display: flex;
+        }
+        .home-dropdown a {
+            color: #23243a;
+            text-decoration: none;
+            font-family: 'Vazir', Tahoma, sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 0.6rem 1rem;
+            border-radius: 0.7rem;
+            transition: background 0.2s, color 0.2s;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .home-dropdown a i {
+            font-size: 1.1rem;
+            color: #ff4d00;
+            min-width: 1.2em;
+            transition: color 0.2s;
+        }
+        .home-dropdown a:hover i {
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .header-home-menu {
+                top: 1rem;
+                right: 1rem;
+                left: auto;
+            }
+            .home-dropdown {
+                min-width: 120px;
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 872px) {
+            .header-home-menu {
+                right: auto;
+                left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="about-modern-header">
+        <div class="header-home-menu">
+            <a href="index.html" class="home-icon" title="خانه">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="home-dropdown">
+                <a href="index.html#services"><i class="fas fa-cogs"></i> خدمات</a>
+                <a href="index.html#portfolio"><i class="fas fa-briefcase"></i> نمونه کارها</a>
+                <a href="about.html"><i class="fas fa-user"></i> درباره ما</a>
+                <a href="index.html#contact"><i class="fas fa-phone"></i> تماس با ما</a>
+            </div>
+        </div>
+        <div class="header-left">
+            <div class="profile-pic-wrapper">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="مدیرعامل کدینو" class="profile-pic">
+                <button class="play-btn"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="header-info">
+                <h1 class="ceo-title">
+                    <span class="ceo-black">مدیر عامل سایت کدینو آقای </span>
+                    <span class="ceo-red">عرفان باقرزاده</span>
+                </h1>
+                <h2>تیم خلاق و متخصص در دنیای وب</h2>
+                <p>آقای عرفان باقرزاده، مدیر عامل خلاق و پرتلاش کدینو، با رهبری الهام‌بخش و دانش فنی بالا، تیم ما را به سوی موفقیت‌های بزرگ هدایت می‌کند. کدینو با تکیه بر تخصص و نوآوری، همواره در مسیر ارائه بهترین خدمات دیجیتال و ساخت آینده‌ای روشن برای کسب‌وکارها گام برمی‌دارد.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav class="header-socials">
+                <a href="#" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="#" title="لینکدین"><i class="fab fa-linkedin"></i></a>
+            </nav>
+            <div class="header-cards">
+                <div class="header-card card1">
+                    <span>01</span>
+                    <h3>ارزش‌ها</h3>
+                    <p>کیفیت، صداقت و نوآوری</p>
+                    <div class="card-popup">
+                        <div class="popup-arrow"></div>
+                        <div class="popup-title">امتیاز ارزش‌ها</div>
+                        <div class="bar-chart multi-bar">
+                            <div class="bar bar-low" style="height:60%">60</div>
+                            <div class="bar bar-mid" style="height:75%">75</div>
+                            <div class="bar bar-high" style="height:90%">90</div>
+                            <div class="bar bar-top" style="height:100%">100</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-card card2">
+                    <span>02</span>
+                    <h3>تیم ما</h3>
+                    <p>جوان، متخصص و پرانرژی</p>
+                    <div class="card-popup">
+                        <div class="popup-arrow"></div>
+                        <div class="popup-title">امتیاز تیم ما</div>
+                        <div class="bar-chart multi-bar">
+                            <div class="bar bar-mid" style="height:70%">70</div>
+                            <div class="bar bar-high" style="height:85%">85</div>
+                            <div class="bar bar-top" style="height:98%">98</div>
+                            <div class="bar bar-high" style="height:90%">90</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-card card3">
+                    <span>03</span>
+                    <h3>خدمات</h3>
+                    <p>طراحی سایت، سئو، آموزش</p>
+                    <div class="card-popup">
+                        <div class="popup-arrow"></div>
+                        <div class="popup-title">امتیاز خدمات</div>
+                        <div class="bar-chart multi-bar">
+                            <div class="bar bar-low" style="height:55%">55</div>
+                            <div class="bar bar-mid" style="height:78%">78</div>
+                            <div class="bar bar-high" style="height:88%">88</div>
+                            <div class="bar bar-top" style="height:95%">95</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="about-hero">
+        <span class="subtitle">خدمات حرفه‌ای وب</span>
+        <h1>سلام! ما کدینو هستیم 👋<br>سازنده راهکارهای دیجیتال</h1>
+        <p>در کدینو، ما با تیمی جوان و متخصص، به کسب‌وکارها کمک می‌کنیم تا با طراحی سایت‌های مدرن، فروشگاه‌های اینترنتی و اپلیکیشن‌های تحت وب، در دنیای دیجیتال بدرخشند. ما عاشق تکنولوژی و نوآوری هستیم و همیشه به دنبال ارائه بهترین تجربه کاربری و رشد واقعی برای مشتریانمان می‌باشیم.</p>
+        <a href="#footer" class="cta-btn">تماس با ما</a>
+    </section>
+    <section class="about-section">
+        <h2>درباره کدینو</h2>
+        <div class="desc">
+            کدینو یک تیم خلاق و حرفه‌ای در زمینه طراحی و توسعه وب است. ما با تمرکز بر کیفیت، امنیت و زیبایی بصری، پروژه‌های متنوعی را برای برندهای مختلف اجرا کرده‌ایم. خدمات ما شامل طراحی سایت اختصاصی، فروشگاه اینترنتی، سئو، پشتیبانی و مشاوره دیجیتال است. هدف ما رشد کسب‌وکار شما و ساخت تجربه‌ای متفاوت برای کاربران شماست.
+        </div>
+        <ul class="codino-features">
+            <li><i class="fas fa-users"></i> تیم متخصص و جوان</li>
+            <li><i class="fas fa-code"></i> استفاده از جدیدترین تکنولوژی‌ها</li>
+            <li><i class="fas fa-headset"></i> پشتیبانی سریع و حرفه‌ای</li>
+            <li><i class="fas fa-paint-brush"></i> طراحی اختصاصی و خلاقانه</li>
+            <li><i class="fas fa-shield-alt"></i> امنیت و کیفیت بالا</li>
+            <li><i class="fas fa-smile"></i> رضایت بالای مشتریان</li>
+            <li><i class="fas fa-comments"></i> مشاوره رایگان و تخصصی</li>
+            <li><i class="fas fa-clock"></i> تحویل به موقع پروژه‌ها</li>
+            <li><i class="fas fa-chalkboard-teacher"></i> آموزش رایگان به مشتریان</li>
+            <li><i class="fas fa-mobile-alt"></i> طراحی ریسپانسیو برای موبایل و تبلت</li>
+            <li><i class="fas fa-tachometer-alt"></i> سرعت بارگذاری بالا</li>
+            <li><i class="fas fa-cogs"></i> پنل مدیریت آسان و پیشرفته</li>
+            <li><i class="fas fa-android"></i> توسعه اپلیکیشن موبایل</li>
+            <li><i class="fas fa-share-alt"></i> یکپارچه‌سازی با شبکه‌های اجتماعی</li>
+            <li><i class="fas fa-chart-bar"></i> تحلیل و آنالیز داده</li>
+            <li><i class="fas fa-sync-alt"></i> بروزرسانی منظم و رایگان</li>
+            <li><i class="fas fa-object-group"></i> طراحی UI/UX حرفه‌ای</li>
+            <li><i class="fas fa-search-plus"></i> رعایت کامل اصول سئو</li>
+            <li><i class="fas fa-puzzle-piece"></i> امکان توسعه اختصاصی بر اساس نیاز شما</li>
+            <li><i class="fas fa-book"></i> مستندسازی کامل پروژه‌ها</li>
+            <li><i class="fas fa-vial"></i> تست و تضمین کیفیت</li>
+            <li><i class="fas fa-file-contract"></i> قرارداد شفاف و منصفانه</li>
+            <li><i class="fas fa-user-shield"></i> احترام به حریم خصوصی کاربران</li>
+            <li><i class="fas fa-lightbulb"></i> ارائه راهکارهای نوآورانه و خلاقانه</li>
+        </ul>
+        <div class="services">
+            <div class="service-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>طراحی سایت اختصاصی</h3>
+                <p>طراحی و پیاده‌سازی سایت‌های مدرن و واکنش‌گرا با جدیدترین تکنولوژی‌ها و استانداردهای روز دنیا.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-store"></i>
+                <h3>فروشگاه اینترنتی</h3>
+                <p>راه‌اندازی فروشگاه آنلاین با امکانات کامل، سبد خرید، درگاه پرداخت و مدیریت حرفه‌ای محصولات.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-search"></i>
+                <h3>سئو و بهینه‌سازی</h3>
+                <p>افزایش رتبه سایت شما در گوگل و جذب مشتریان بیشتر با خدمات تخصصی سئو و تولید محتوا.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-headset"></i>
+                <h3>پشتیبانی و مشاوره</h3>
+                <p>پشتیبانی ۲۴ ساعته و مشاوره تخصصی برای رشد و توسعه کسب‌وکار دیجیتال شما.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>توسعه اپلیکیشن موبایل</h3>
+                <p>طراحی و توسعه اپلیکیشن‌های موبایل برای اندروید و iOS با رابط کاربری حرفه‌ای.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-object-group"></i>
+                <h3>طراحی رابط کاربری (UI/UX)</h3>
+                <p>طراحی تجربه کاربری و رابط کاربری مدرن و کاربرپسند برای وب و اپلیکیشن.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-pen-nib"></i>
+                <h3>تولید محتوا و بلاگ</h3>
+                <p>تولید محتوای تخصصی و سئو شده برای رشد برند و جذب مخاطب هدفمند.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>امنیت و تست نفوذ</h3>
+                <p>بررسی امنیت سایت و انجام تست نفوذ برای حفاظت از داده‌ها و کاربران.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>آموزش و مشاوره دیجیتال مارکتینگ</h3>
+                <p>برگزاری دوره‌های آموزشی و ارائه مشاوره تخصصی در زمینه بازاریابی دیجیتال.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chalkboard"></i>
+                <h3>آموزش حضوری و آنلاین</h3>
+                <p>برگزاری دوره‌های آموزشی حضوری و آنلاین برای علاقه‌مندان به حوزه وب و فناوری.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-laptop"></i>
+                <h3>آموزش تخصصی برنامه‌نویسی</h3>
+                <p>آموزش زبان‌های برنامه‌نویسی روز دنیا توسط متخصصان کدینو.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>آموزش طراحی سایت</h3>
+                <p>دوره‌های تخصصی طراحی سایت و رابط کاربری برای ورود به بازار کار.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-plus"></i>
+                <h3>فرصت‌های استخدامی</h3>
+                <p>استخدام نیروهای متخصص و علاقه‌مند برای همکاری در پروژه‌های بزرگ کدینو.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-handshake"></i>
+                <h3>همکاری با فریلنسرها</h3>
+                <p>امکان همکاری پروژه‌ای با فریلنسرهای حرفه‌ای در حوزه‌های مختلف فناوری.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-graduate"></i>
+                <h3>جذب و پرورش استعدادها</h3>
+                <p>شناسایی و حمایت از استعدادهای جوان برای رشد و پیشرفت در دنیای دیجیتال.</p>
+            </div>
+        </div>
+        <h2>نمونه پروژه‌ها</h2>
+        <div class="portfolio">
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۱">
+                <div class="info">
+                    <h4>فروشگاه آنلاین مدرن</h4>
+                    <p>طراحی و توسعه فروشگاه اینترنتی با رابط کاربری جذاب و سرعت بالا</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۲">
+                <div class="info">
+                    <h4>سایت شرکتی حرفه‌ای</h4>
+                    <p>سایت معرفی خدمات و نمونه کارها برای شرکت‌های معتبر</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۳">
+                <div class="info">
+                    <h4>اپلیکیشن تحت وب</h4>
+                    <p>طراحی اپلیکیشن‌های تحت وب با تجربه کاربری عالی و امنیت بالا</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۴">
+                <div class="info">
+                    <h4>پروژه اختصاصی برندینگ</h4>
+                    <p>طراحی هویت بصری و سایت اختصاصی برای برندهای خاص</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۵">
+                <div class="info">
+                    <h4>سامانه مدیریت محتوا</h4>
+                    <p>سیستم مدیریت محتوا با امکانات پیشرفته و امنیت بالا</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3c8b?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۶">
+                <div class="info">
+                    <h4>وبلاگ تخصصی</h4>
+                    <p>طراحی وبلاگ با ساختار حرفه‌ای و سئو عالی برای تولید محتوا</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۷">
+                <div class="info">
+                    <h4>سیستم رزرو آنلاین</h4>
+                    <p>سامانه رزرو و نوبت‌دهی آنلاین با پنل مدیریت پیشرفته</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۸">
+                <div class="info">
+                    <h4>سایت خبری مدرن</h4>
+                    <p>پلتفرم خبری با طراحی مدرن و قابلیت انتشار سریع اخبار</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="نمونه سایت ۹">
+                <div class="info">
+                    <h4>پنل مدیریت مشتریان</h4>
+                    <p>سیستم مدیریت و ارتباط با مشتریان ویژه کسب‌وکارها</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>درباره کدینو</h3>
+                <p>کدینو یک تیم خلاق و حرفه‌ای در زمینه طراحی و توسعه وب است که با تمرکز بر کیفیت، امنیت و زیبایی بصری، پروژه‌های متنوعی را برای برندهای مختلف اجرا می‌کند.</p>
+            </div>
+            <div class="footer-section">
+                <h3>تماس با ما</h3>
+                <p><i class="fas fa-map-marker-alt"></i> تهران</p>
+                <p><i class="fas fa-phone"></i> 09362205838</p>
+                <p><i class="fas fa-envelope"></i> erfanbagherzadeh81@gmail.com</p>
+            </div>
+            <div class="footer-section footer-socials">
+                <h3>ما را دنبال کنید</h3>
+                <div class="footer-icons">
+                    <a href="#" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                    <a href="#" title="لینکدین"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 کدینو. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+</body>
+</html> 

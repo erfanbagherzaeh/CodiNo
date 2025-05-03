@@ -1,0 +1,3376 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طراحی و توسعه وب سایت | عرفان باقرزاده</title>
+    <meta name="description" content="طراحی و توسعه وب سایت حرفه‌ای، آموزش برنامه‌نویسی، طراحی رابط کاربری و تجربه کاربری. با بیش از ۵ سال تجربه در توسعه وب.">
+    <meta name="keywords" content="طراحی سایت, توسعه وب, برنامه‌نویسی, آموزش برنامه‌نویسی, طراحی رابط کاربری, UI/UX, فرانت‌اند, Frontend">
+    <meta name="author" content="عرفان باقرزاده">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="طراحی و توسعه وب سایت | عرفان باقرزاده">
+    <meta property="og:description" content="طراحی و توسعه وب سایت حرفه‌ای، آموزش برنامه‌نویسی، طراحی رابط کاربری و تجربه کاربری">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://erfanbagherzadeh.com">
+    <meta property="og:image" content="https://erfanbagherzadeh.com/images/og-image.jpg">
+    <link rel="canonical" href="https://erfanbagherzadeh.com">
+    <link rel="alternate" hreflang="fa" href="https://erfanbagherzadeh.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "طراحی و توسعه وب سایت | عرفان باقرزاده",
+        "url": "https://erfanbagherzadeh.com",
+        "description": "طراحی و توسعه وب سایت حرفه‌ای، آموزش برنامه‌نویسی، طراحی رابط کاربری و تجربه کاربری",
+        "author": {
+            "@type": "Person",
+            "name": "عرفان باقرزاده",
+            "jobTitle": "توسعه‌دهنده وب و مدرس برنامه‌نویسی"
+        }
+    }
+    </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+    body {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            overflow-x: hidden;
+            transition: background-color 1s ease, color 1s ease;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 1s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: white;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+      cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+      width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+      color: white;
+      text-align: center;
+    }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .hero-buttons {
+      display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+      font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Templates Section */
+        .templates {
+            padding: 5rem 0;
+            background: var(--light-gray);
+        }
+
+        .templates-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .template-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .template-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .template-card:hover .template-image img {
+            transform: scale(1.1);
+        }
+
+        .template-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .template-info {
+            padding: 1.5rem;
+        }
+
+        .template-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .template-info .btn {
+            margin: 1.5rem 0;
+            display: block;
+            text-align: center;
+        }
+
+        .template-contact {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        .template-contact .contact-info {
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .template-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .template-feature {
+            background: var(--light-gray);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Demo Section */
+        .demo {
+            padding: 5rem 0;
+            background: white;
+            position: relative;
+        }
+
+        .demo-video {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .demo-video video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            padding: 0 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+      justify-content: center;
+      align-items: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .gallery-description {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(6) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(7) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(9) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(10) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(11) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(12) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(13) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(14) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(15) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(16) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(17) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(18) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(19) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(20) { grid-column: span 1; grid-row: span 1; }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 0;
+            background: var(--light-gray);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            padding-bottom: 1rem;
+        }
+
+        .tab {
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            background: white;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tab.active {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        .testimonial-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid var(--accent-color);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-phone {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .feedback-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .feedback-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+      border-radius: 5px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 0.8rem 2rem;
+      border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .education-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .education-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .education-item p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .analysis-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .analysis-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .analysis-item:last-child {
+            border-bottom: none;
+        }
+
+        .analysis-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .analysis-item p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .contact-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+            margin-left: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+      font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .social-links {
+      display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+      font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 468px) {
+            .nav-buttons {
+                display: none;
+            }
+            
+            .nav-container {
+                justify-content: space-between;
+            }
+            
+            .mobile-menu-btn {
+                margin-left: 0;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                margin-right: auto;
+            }
+        }
+
+        /* Request Form Section */
+        .request {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .request-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .request-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+      border-radius: 5px;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: block;
+            margin: 0 auto;
+      width: 200px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Consultation Popup */
+        .consultation-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .consultation-popup.active {
+            display: flex;
+        }
+
+        .consultation-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            height: auto;
+            min-height: 500px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: popupIn 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .consultation-header {
+      text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .consultation-header h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .consultation-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .consultation-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .consultation-form input,
+        .consultation-form select,
+        .consultation-form textarea {
+      width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .consultation-form input:focus,
+        .consultation-form select:focus,
+        .consultation-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .consultation-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .consultation-submit {
+            background: var(--gradient);
+      color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 1.1rem;
+      cursor: pointer;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+
+        .consultation-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .consultation-success {
+            display: none;
+      text-align: center;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .consultation-success i {
+            font-size: 4rem;
+            color: #2ecc71;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-success h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-success p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1001;
+            padding: 1rem;
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+      width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            margin: -1rem -1rem 1.5rem -1rem;
+            padding: 1.5rem 1rem;
+      color: white;
+        }
+
+        .mobile-menu-header h3 {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .mobile-menu-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+      display: flex;
+            align-items: center;
+      justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        .mobile-menu-content {
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-content a {
+            display: flex;
+      align-items: center;
+            padding: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-bottom: 0.8rem;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-menu-content a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent-color);
+            transition: height 0.3s ease;
+        }
+
+        .mobile-menu-content a:hover {
+            transform: translateX(-5px);
+            background: var(--light-gray);
+        }
+
+        .mobile-menu-content a:hover::before {
+            height: 100%;
+        }
+
+        .mobile-menu-content a i {
+            margin-left: 1rem;
+            font-size: 1.3rem;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-gray);
+            border-radius: 50%;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-content a:hover i {
+            background: var(--accent-color);
+            color: white;
+            transform: rotate(360deg);
+        }
+
+        @keyframes menuItemAppear {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .mobile-menu-content a {
+            animation: menuItemAppear 0.3s ease forwards;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        .mobile-menu-content a:nth-child(1) { --i: 1; }
+        .mobile-menu-content a:nth-child(2) { --i: 2; }
+        .mobile-menu-content a:nth-child(3) { --i: 3; }
+        .mobile-menu-content a:nth-child(4) { --i: 4; }
+        .mobile-menu-content a:nth-child(5) { --i: 5; }
+        .mobile-menu-content a:nth-child(6) { --i: 6; }
+        .mobile-menu-content a:nth-child(7) { --i: 7; }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .nav-container {
+                justify-content: space-between;
+            }
+    }
+
+        .ready-section {
+            background: var(--light-gray);
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+
+        .ready-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .ready-content {
+            flex: 1;
+        }
+
+        .ready-content h2 {
+      font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ready-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .ready-feature {
+      display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .ready-feature i {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .ready-feature h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .ready-feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .ready-image {
+            flex: 1;
+        }
+
+        .ready-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .ready-container {
+                flex-direction: column;
+            gap: 2rem;
+            }
+
+            .ready-content h2 {
+                font-size: 1.8rem;
+      text-align: center;
+            }
+
+            .ready-feature {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        /* Dark Mode Toggle Button */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .dark-mode-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+      width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .dark-mode-toggle:hover::before {
+            opacity: 1;
+        }
+
+        .dark-mode-toggle i {
+            font-size: 1.3rem;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark-mode-toggle.active i {
+            animation: rotateIcon 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark-mode-toggle span {
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .dark-mode-toggle:active::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        @keyframes rotateIcon {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Dark mode button styles */
+        body.dark-mode .dark-mode-toggle {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        body.dark-mode .dark-mode-toggle::before {
+            background: linear-gradient(45deg, #2d2d2d, #1a1a1a);
+        }
+
+        body.dark-mode .dark-mode-toggle:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(26, 26, 26, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .navbar.scrolled {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .hero::before {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        body.dark-mode .features {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .templates {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .demo {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .gallery {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .testimonials {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .cta {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+        }
+
+        body.dark-mode .ready-section {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .ready-content {
+            background: #2d2d2d;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .ready-content h2 {
+            color: #f5f5f5;
+            background: linear-gradient(135deg, #f5f5f5 0%, #cccccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.dark-mode .ready-feature {
+            background: #3d3d3d;
+            padding: 1rem;
+      border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        body.dark-mode .ready-feature i {
+            color: #e74c3c;
+        }
+
+        body.dark-mode .ready-feature h3 {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .ready-feature p {
+            color: #cccccc;
+        }
+
+        body.dark-mode .ready-image {
+            background: #2d2d2d;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .ready-image img {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .ready-container {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        body.dark-mode .promo-banner {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+        }
+
+        body.dark-mode .promo-banner h2 {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .promo-banner p {
+            color: #cccccc;
+        }
+
+        body.dark-mode .promo-banner .btn {
+            background: #2d2d2d;
+            color: #f5f5f5;
+            border: 2px solid #f5f5f5;
+        }
+
+        body.dark-mode .promo-banner .btn:hover {
+            background: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        body.dark-mode .ready-section[style*="background: #ffffff"] {
+            background: #1a1a1a !important;
+        }
+
+        body.dark-mode .ready-section[style*="background: #f8f9fa"] {
+            background: #2d2d2d !important;
+        }
+
+        body.dark-mode .ready-container {
+            background: transparent;
+        }
+
+        body.dark-mode .ready-content {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .ready-image {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .ready-image img {
+            filter: brightness(0.8);
+        }
+
+        body.dark-mode .ready-feature {
+            background: #3d3d3d;
+        }
+
+        body.dark-mode .ready-feature i {
+            color: #e74c3c;
+        }
+
+        body.dark-mode .ready-feature h3 {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .ready-feature p {
+            color: #cccccc;
+        }
+
+        body.dark-mode .ready-content h2 {
+            color: #f5f5f5;
+            background: linear-gradient(135deg, #f5f5f5 0%, #cccccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.dark-mode .feature-card,
+        body.dark-mode .template-card,
+        body.dark-mode .testimonial-card,
+        body.dark-mode .feedback-form,
+        body.dark-mode .education-content,
+        body.dark-mode .analysis-content,
+        body.dark-mode .contact-content,
+        body.dark-mode .request-form,
+        body.dark-mode .consultation-form {
+            background: #2d2d2d;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .feature-card h3,
+        body.dark-mode .template-info h3,
+        body.dark-mode .testimonial-name,
+        body.dark-mode .feedback-form h3,
+        body.dark-mode .education-item h3,
+        body.dark-mode .analysis-item h3,
+        body.dark-mode .contact-info h3,
+        body.dark-mode .request-form h3,
+        body.dark-mode .consultation-header h3 {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .feature-card p,
+        body.dark-mode .template-info p,
+        body.dark-mode .testimonial-text,
+        body.dark-mode .feedback-form p,
+        body.dark-mode .education-item p,
+        body.dark-mode .analysis-item p,
+        body.dark-mode .contact-info p,
+        body.dark-mode .request-form p,
+        body.dark-mode .consultation-header p {
+            color: #cccccc;
+        }
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group select,
+        body.dark-mode .form-group textarea {
+            background: #2d2d2d;
+            border-color: #444;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .gallery-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .gallery-title {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .gallery-description {
+            color: #cccccc;
+        }
+
+        body.dark-mode footer {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .footer-section h3 {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .footer-section p,
+        body.dark-mode .footer-links li {
+            color: #cccccc;
+        }
+
+        body.dark-mode .social-links a {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .copyright {
+            color: #cccccc;
+        }
+
+        body.dark-mode .template-badge {
+            background: #e74c3c;
+        }
+
+        body.dark-mode .template-feature {
+            background: #2d2d2d;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .contact-info {
+            color: #cccccc;
+        }
+
+        body.dark-mode .mobile-menu {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        body.dark-mode .mobile-menu-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+        }
+
+        body.dark-mode .mobile-menu-content a {
+            background: #2d2d2d;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .mobile-menu-content a:hover {
+            background: #3d3d3d;
+        }
+
+        body.dark-mode .mobile-menu-content a i {
+            background: #3d3d3d;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .consultation-popup {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        body.dark-mode .consultation-form {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .consultation-success i {
+            color: #2ecc71;
+        }
+
+        body.dark-mode .consultation-success h3 {
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .consultation-success p {
+            color: #cccccc;
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        body.dark-mode .dark-mode-toggle::before {
+            background: linear-gradient(45deg, #2d2d2d, #1a1a1a);
+        }
+
+        body.dark-mode .dark-mode-toggle:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+
+        /* Dark mode overlay animation */
+        .dark-mode-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+        }
+
+        .dark-mode-overlay.active {
+            opacity: 1;
+        }
+
+        /* Light mode overlay animation */
+        .light-mode-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+        }
+
+        .light-mode-overlay.active {
+            opacity: 1;
+        }
+
+        /* Add smooth transitions for text elements */
+        h1, h2, h3, h4, h5, h6, p, span, a, li {
+            transition: color 1s ease;
+        }
+
+        /* Add smooth transitions for backgrounds */
+        .navbar, .hero::before, .features, .templates, .demo, 
+        .gallery, .testimonials, .cta, .ready-section, 
+        .promo-banner, footer {
+            transition: background 1s ease;
+        }
+        /* Add smooth transitions for shadows and borders */
+        .feature-card, .template-card, .testimonial-card, 
+        .gallery-item, .form-group input, .form-group select, 
+        .form-group textarea {
+            transition: box-shadow 1s ease, border-color 1s ease;
+        }
+
+        /* Add smooth transitions for gradients */
+        .gradient-bg {
+            transition: background-image 1s ease;
+        }
+
+        /* Home Dropdown */
+        .home-dropdown {
+            position: relative;
+        }
+
+        .home-dropdown-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s;
+        }
+
+        .home-dropdown-item:hover {
+            background-color: var(--accent-color);
+      color: white;
+        }
+
+        .home-dropdown-item i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        /* Promotional Box */
+        .promo-box {
+            position: fixed;
+            top: 50%;
+            right: -300px;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            width: 280px;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .promo-box.show {
+            right: 20px;
+        }
+
+        .promo-close {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 1.3rem;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.05);
+        }
+
+        .promo-close:hover {
+            color: var(--secondary-color);
+            background: rgba(231, 76, 60, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .promo-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+      text-align: center;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .promo-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .promo-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .promo-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
+            padding: 0.6rem;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.5);
+            transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+        .promo-feature:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateX(-3px);
+        }
+
+        .promo-feature i {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+        }
+
+        .promo-contact {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .promo-contact p {
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .promo-contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .promo-contact a:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .promo-contact a i {
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: var(--font-family);
+        }
+
+        .footer-top {
+            background-color: #222;
+            padding: 2rem 0;
+        }
+
+        .contact-info {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #ff4d00;
+        }
+
+        .contact-text h4 {
+            font-size: 1rem;
+            margin: 0;
+            color: #ff4d00;
+        }
+
+        .contact-text p {
+            margin: 0.25rem 0 0;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer-main {
+            padding: 4rem 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 3fr 2fr;
+            gap: 4rem;
+        }
+
+        .footer-brand .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .brand-description {
+            color: #888;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column ul li a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ff4d00;
+        }
+
+        .footer-newsletter h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .footer-newsletter p {
+            color: #888;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #ff4d00;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #ff6626;
+        }
+
+        .footer-bottom {
+            background-color: #111;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            color: #888;
+            margin: 0;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #ff4d00;
+        }
+
+        .footer-links-bottom {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links-bottom a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links-bottom a:hover {
+            color: #ff4d00;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 2fr;
+            }
+            .footer-newsletter {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .footer-links-bottom {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+    <!-- Promotional Box -->
+    <div class="promo-box" id="promoBox">
+        <span class="promo-close" id="closePromo">&times;</span>
+        <h3 class="promo-title">امکانات ویژه سایت</h3>
+        <ul class="promo-features">
+            <li class="promo-feature">
+                <i class="fab fa-figma"></i>
+                طراحی مدرن و ریسپانسیو
+            </li>
+            <li class="promo-feature">
+                <i class="fas fa-headset"></i>
+                پشتیبانی 24 ساعته
+            </li>
+            <li class="promo-feature">
+                <i class="fas fa-chart-line"></i>
+                بهینه‌سازی سئو
+            </li>
+            <li class="promo-feature">
+                <i class="fas fa-shield-alt"></i>
+                امنیت و سرعت بالا
+            </li>
+        </ul>
+        <div class="promo-contact">
+            <p>برای مشاوره رایگان تماس بگیرید:</p>
+            <a href="tel:09362205838">
+                <i class="fas fa-phone"></i>
+                عرفان باقرزاده - 09362205838
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">کدینو / قالب</div>
+            <div class="nav-links">
+                <a href="#features">ویژگی‌ها</a>
+                <a href="#templates">قالب‌ها</a>
+                <a href="#demo">نمونه کارها</a>
+                <a href="about.html" target="_blank">درباره ما</a>
+                <a href="request.html">درخواست سایت</a>
+                <a href="tutorials.html">آموزش‌ها</a>
+                <a href="#contact-section">تماس</a>
+                <a href="consultation.html">مشاوره رایگان</a>
+    </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">ورود</a>
+                <a href="login.html" class="btn btn-primary">ثبت‌نام</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3>منو</h3>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+    </div>
+        <div class="mobile-menu-content">
+            <a href="#features">
+                <i class="fas fa-star"></i>
+                ویژگی‌ها
+            </a>
+            <a href="#templates">
+                <i class="fas fa-palette"></i>
+                قالب‌ها
+            </a>
+            <a href="#demo">
+                <i class="fas fa-play-circle"></i>
+                نمونه کارها
+            </a>
+            <a href="about.html" target="_blank">
+                <i class="fas fa-info-circle"></i>
+                درباره ما
+            </a>
+            <a href="request.html">
+                <i class="fas fa-file-alt"></i>
+                درخواست سایت
+            </a>
+            <a href="tutorials.html">
+                <i class="fas fa-graduation-cap"></i>
+                آموزش‌ها
+            </a>
+            <a href="#contact-section">
+                <i class="fas fa-envelope"></i>
+                تماس با ما
+            </a>
+            <a href="consultation.html">
+                <i class="fas fa-comments"></i>
+                مشاوره رایگان
+            </a>
+        </div>
+  </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>قالب‌های حرفه‌ای برای وبسایت شما</h1>
+            <p>با مجموعه‌ای از بهترین قالب‌های وبسایت، کسب و کار خود را متحول کنید</p>
+            <div class="hero-buttons">
+                <a href="#templates" class="btn btn-primary">مشاهده قالب‌ها</a>
+                <a href="#demo" class="btn btn-outline">مشاهده نمونه کارها</a>
+    </div>
+    </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>ویژگی‌های منحصر به فرد</h2>
+            <p>قالب‌های ما با بهترین ویژگی‌ها و امکانات طراحی شده‌اند</p>
+    </div>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+  </div>
+                <h3>ریسپانسیو</h3>
+                <p>سازگار با تمام دستگاه‌ها و سایزهای صفحه نمایش</p>
+    </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-paint-brush"></i>
+  </div>
+                <h3>طراحی مدرن</h3>
+                <p>طراحی زیبا و مدرن با آخرین استانداردهای وب</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>کد تمیز</h3>
+                <p>کدهای بهینه و استاندارد برای عملکرد بهتر</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>سئو پیشرفته</h3>
+                <p>بهینه‌سازی کامل برای موتورهای جستجو</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>امنیت بالا</h3>
+                <p>سیستم امنیتی پیشرفته برای محافظت از داده‌ها</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>سرعت بالا</h3>
+                <p>بارگذاری سریع صفحات با بهینه‌سازی تصاویر و کدها</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>فروشگاه آنلاین</h3>
+                <p>سیستم فروشگاهی کامل با درگاه پرداخت</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>پشتیبانی 24/7</h3>
+                <p>پشتیبانی فنی و مشاوره رایگان در تمام ساعات</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                <div class="feature-icon">
+                    <i class="fas fa-sync"></i>
+                </div>
+                <h3>بروزرسانی رایگان</h3>
+                <p>به‌روزرسانی‌های منظم و رایگان قالب‌ها</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="900">
+                <div class="feature-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h3>چند زبانه</h3>
+                <p>پشتیبانی از زبان‌های مختلف برای مخاطبان جهانی</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1000">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>آنالیز پیشرفته</h3>
+                <p>گزارش‌های دقیق از عملکرد و بازدیدکنندگان سایت</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1100">
+                <div class="feature-icon">
+                    <i class="fas fa-blog"></i>
+                </div>
+                <h3>سیستم وبلاگ</h3>
+                <p>مدیریت محتوا و انتشار مقالات به صورت حرفه‌ای</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1200">
+                <div class="feature-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>سیستم نظرات</h3>
+                <p>مدیریت نظرات و تعامل با کاربران</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1300">
+                <div class="feature-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>فرم تماس</h3>
+                <p>سیستم ارتباطی پیشرفته با مشتریان</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1400">
+                <div class="feature-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <h3>گالری تصاویر</h3>
+                <p>نمایش حرفه‌ای تصاویر و محصولات</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1500">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>رزرو آنلاین</h3>
+                <p>سیستم رزرواسیون پیشرفته برای خدمات و قرار ملاقات‌ها</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1600">
+                <div class="feature-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>نقشه گوگل</h3>
+                <p>نمایش موقعیت مکانی با نقشه گوگل</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1700">
+                <div class="feature-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <h3>اشتراک‌گذاری</h3>
+                <p>اشتراک‌گذاری محتوا در شبکه‌های اجتماعی</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1800">
+                <div class="feature-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <h3>خبرنامه</h3>
+                <p>سیستم خبرنامه برای اطلاع‌رسانی به مشتریان</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1900">
+                <div class="feature-icon">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <h3>جستجوی پیشرفته</h3>
+                <p>سیستم جستجوی هوشمند با فیلترهای مختلف</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="2000">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile"></i>
+                </div>
+                <h3>اپلیکیشن موبایل</h3>
+                <p>نسخه موبایل با رابط کاربری اختصاصی</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="templates" id="templates">
+        <div class="section-title">
+            <h2>قالب‌های پرفروش</h2>
+            <p>انتخاب از میان بهترین قالب‌های وبسایت</p>
+  </div>
+        <div class="templates-grid">
+            <div class="template-card" data-aos="fade-up">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب شرکتی">
+                    <span class="template-badge">پرفروش</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب شرکتی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">مدرن</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="corporate-templates.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب فروشگاهی">
+                    <span class="template-badge">جدید</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب فروشگاهی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">فروشگاهی</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="shop-templates.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب شخصی">
+                    <span class="template-badge">جدید</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب شخصی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">شخصی</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="personal-templates.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب رستوران">
+                    <span class="template-badge">جدید</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب رستوران</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو آنلاین</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="restaurant-templates.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب آموزشگاه">
+                    <span class="template-badge">جدید</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب آموزشگاه</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">ثبت نام آنلاین</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="amozeshga-template.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب پزشکی">
+                    <span class="template-badge">جدید</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب پزشکی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو نوبت</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="dacter-template.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب مسافرتی">
+                    <span class="template-badge">جدید</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب مسافرتی</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو تور</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="mosafrat-template.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-card" data-aos="fade-up" data-aos-delay="700">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب مشاوره">
+                    <span class="template-badge">جدید</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب مشاوره</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">رزرو جلسه</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="moshavre-template.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-card" data-aos="fade-up" data-aos-delay="800">
+                <div class="template-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="قالب املاک">
+                    <span class="template-badge">جدید</span>
+                </div>
+                <div class="template-info">
+                    <h3>قالب املاک</h3>
+                    <div class="template-features">
+                        <span class="template-feature">ریسپانسیو</span>
+                        <span class="template-feature">جستجوی پیشرفته</span>
+                        <span class="template-feature">سئو</span>
+                    </div>
+                    <a href="amlak-template.html" class="btn btn-primary">مشاهده قالب‌ها</a>
+                    <div class="template-contact">
+                        برای خرید قالب و طراحی وب سایت با ما در تماس باشید<br>
+                        <span class="contact-info">۰۹۳۶۲۲۰۵۸۳۸</span><br>
+                        <span class="contact-info">عرفان باقرزاده</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo" id="demo">
+        <div class="section-title">
+            <h2>نمونه کارها</h2>
+            <p>مشاهده نمونه کارهای ما</p>
+        </div>
+        <div class="demo-video" data-aos="zoom-in">
+            <video controls poster="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+                <source src="https://example.com/demo-video.mp4" type="video/mp4">
+                مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+            </video>
+        </div>
+        <div class="gallery">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 1">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">وبسایت شرکتی</h3>
+                        <p class="gallery-description">طراحی مدرن و حرفه‌ای برای شرکت‌های بزرگ با قابلیت نمایش محصولات و خدمات</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 2">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">فروشگاه آنلاین</h3>
+                        <p class="gallery-description">سیستم فروشگاهی کامل با درگاه پرداخت و مدیریت محصولات</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 3">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">وبلاگ شخصی</h3>
+                        <p class="gallery-description">قالب زیبا و ساده برای وبلاگ‌نویسان و نویسندگان</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 4">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">رستوران و کافه</h3>
+                        <p class="gallery-description">نمایش منو، رزرو آنلاین و گالری تصاویر برای رستوران‌ها</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 5">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">آموزشگاه آنلاین</h3>
+                        <p class="gallery-description">سیستم آموزش مجازی با قابلیت برگزاری کلاس‌های آنلاین</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 6">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">نمایشگاه خودرو</h3>
+                        <p class="gallery-description">نمایش خودروها با قابلیت فیلتر و جستجوی پیشرفته</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 7">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">آژانس مسافرتی</h3>
+                        <p class="gallery-description">رزرو آنلاین تور و بلیط با گالری تصاویر مقاصد گردشگری</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 8">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">پزشکی و سلامت</h3>
+                        <p class="gallery-description">رزرو نوبت آنلاین و معرفی خدمات پزشکی</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 9">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">فروشگاه پوشاک</h3>
+                        <p class="gallery-description">نمایش محصولات با فیلترهای پیشرفته و سبد خرید</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 10">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">خدمات ساختمانی</h3>
+                        <p class="gallery-description">نمونه کارها و خدمات شرکت‌های ساختمانی</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 11">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">آموزشگاه زبان</h3>
+                        <p class="gallery-description">ثبت نام آنلاین و معرفی دوره‌های آموزشی</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 12">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">فروشگاه لوازم خانگی</h3>
+                        <p class="gallery-description">نمایش محصولات با قابلیت مقایسه و خرید آنلاین</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 13">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">خدمات مشاوره</h3>
+                        <p class="gallery-description">رزرو جلسات مشاوره و معرفی خدمات تخصصی</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 14">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">فروشگاه کتاب</h3>
+                        <p class="gallery-description">نمایش کتاب‌ها با دسته‌بندی و جستجوی پیشرفته</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 15">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">خدمات طراحی</h3>
+                        <p class="gallery-description">نمونه کارها و خدمات طراحی گرافیک و وب</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 16">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">فروشگاه موبایل</h3>
+                        <p class="gallery-description">نمایش محصولات با قابلیت مقایسه و خرید آنلاین</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 17">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">خدمات حقوقی</h3>
+                        <p class="gallery-description">رزرو مشاوره و معرفی خدمات حقوقی تخصصی</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 18">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">فروشگاه ورزشی</h3>
+                        <p class="gallery-description">نمایش محصولات ورزشی با دسته‌بندی و فیلتر</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 19">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">خدمات مالی</h3>
+                        <p class="gallery-description">مشاوره مالی و معرفی خدمات بانکی و بیمه</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="پروژه 20">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">فروشگاه زیورآلات</h3>
+                        <p class="gallery-description">نمایش محصولات با گالری تصاویر و خرید آنلاین</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>آماده شروع هستید؟</h2>
+        <p>همین حالا قالب مناسب خود را انتخاب کنید و وبسایت خود را راه‌اندازی کنید</p>
+        <a href="#templates" class="btn btn-primary">مشاهده قالب‌ها</a>
+    </section>
+
+    <!-- آماده‌باش Section -->
+    <section class="ready-section">
+        <div class="ready-container">
+            <div class="ready-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="پشتیبانی و خدمات">
+            </div>
+            <div class="ready-content">
+                <h2>پشتیبانی و خدمات حرفه‌ای</h2>
+                <div class="ready-features">
+                    <div class="ready-feature">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <h3>پشتیبانی 24 ساعته</h3>
+                            <p>تیم پشتیبانی ما در تمام ساعات شبانه‌روز آماده پاسخگویی به سوالات شماست</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-tools"></i>
+                        <div>
+                            <h3>نصب و راه‌اندازی</h3>
+                            <p>نصب و راه‌اندازی حرفه‌ای قالب با پشتیبانی کامل و آموزش استفاده</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-sync"></i>
+                        <div>
+                            <h3>به‌روزرسانی مداوم</h3>
+                            <p>به‌روزرسانی منظم قالب‌ها و اضافه کردن امکانات جدید</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h3>امنیت و پشتیبان‌گیری</h3>
+                            <p>پشتیبان‌گیری منظم از اطلاعات و امنیت کامل داده‌ها</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- امکانات پیشرفته Section -->
+    <section class="ready-section" style="background: #f8f9fa;">
+        <div class="ready-container">
+            <div class="ready-content">
+                <h2>امکانات پیشرفته قالب‌ها</h2>
+                <div class="ready-features">
+                    <div class="ready-feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h3>طراحی ریسپانسیو</h3>
+                            <p>سازگاری کامل با تمام دستگاه‌ها و سایزهای صفحه نمایش</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-search"></i>
+                        <div>
+                            <h3>سئو پیشرفته</h3>
+                            <p>بهینه‌سازی کامل برای موتورهای جستجو و رتبه‌بندی بهتر</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div>
+                            <h3>سیستم فروشگاهی</h3>
+                            <p>مدیریت محصولات، سبد خرید و درگاه پرداخت امن</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <h3>چند زبانه</h3>
+                            <p>پشتیبانی از زبان‌های مختلف برای مخاطبان جهانی</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ready-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="امکانات پیشرفته">
+            </div>
+        </div>
+    </section>
+
+    <!-- آموزش و یادگیری Section -->
+    <section class="ready-section" style="background: #ffffff;">
+        <div class="ready-container">
+            <div class="ready-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="آموزش و یادگیری">
+            </div>
+            <div class="ready-content">
+                <h2>آموزش و یادگیری آسان</h2>
+                <div class="ready-features">
+                    <div class="ready-feature">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <h3>آموزش ویدیویی</h3>
+                            <p>دسترسی به آموزش‌های ویدیویی کامل برای یادگیری سریع</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-book"></i>
+                        <div>
+                            <h3>مستندات کامل</h3>
+                            <p>مستندات جامع و راهنمای استفاده از تمام امکانات</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-comments"></i>
+                        <div>
+                            <h3>پشتیبانی آموزشی</h3>
+                            <p>پاسخگویی به سوالات و راهنمایی در مسیر یادگیری</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h3>کدهای نمونه</h3>
+                            <p>دسترسی به کدهای نمونه و مثال‌های عملی</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- طراحی و توسعه وب Section -->
+    <section class="ready-section" style="background: #f8f9fa;">
+        <div class="ready-container">
+            <div class="ready-content">
+                <h2>طراحی و توسعه وب حرفه‌ای</h2>
+                <div class="ready-features">
+                    <div class="ready-feature">
+                        <i class="fas fa-paint-brush"></i>
+                        <div>
+                            <h3>طراحی UI/UX</h3>
+                            <p>طراحی رابط کاربری مدرن و تجربه کاربری منحصر به فرد</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-code-branch"></i>
+                        <div>
+                            <h3>توسعه فرانت‌اند</h3>
+                            <p>پیاده‌سازی با جدیدترین تکنولوژی‌های وب</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-server"></i>
+                        <div>
+                            <h3>توسعه بک‌اند</h3>
+                            <p>پیاده‌سازی سیستم‌های مدیریت محتوا و API</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h3>توسعه موبایل</h3>
+                            <p>طراحی و توسعه اپلیکیشن‌های موبایل</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ready-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="طراحی و توسعه وب">
+            </div>
+        </div>
+    </section>
+
+    <!-- بازاریابی دیجیتال Section -->
+    <section class="ready-section" style="background: #ffffff;">
+        <div class="ready-container">
+            <div class="ready-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="بازاریابی دیجیتال">
+            </div>
+            <div class="ready-content">
+                <h2>بازاریابی دیجیتال حرفه‌ای</h2>
+                <div class="ready-features">
+                    <div class="ready-feature">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <h3>تبلیغات هدفمند</h3>
+                            <p>تبلیغات هوشمند در شبکه‌های اجتماعی و موتورهای جستجو</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h3>تحلیل و آنالیز</h3>
+                            <p>تحلیل رفتار کاربران و بهینه‌سازی کمپین‌ها</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-hashtag"></i>
+                        <div>
+                            <h3>مدیریت شبکه‌های اجتماعی</h3>
+                            <p>مدیریت حرفه‌ای صفحات و تولید محتوای جذاب</p>
+                        </div>
+                    </div>
+                    <div class="ready-feature">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <div>
+                            <h3>ایمیل مارکتینگ</h3>
+                            <p>طراحی و اجرای کمپین‌های ایمیل مارکتینگ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="promo-banner" style="background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); padding: 4rem 0; margin: 4rem 0;">
+        <div class="promo-container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; text-align: center; color: white;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: bold;">طراحی وبسایت حرفه‌ای برای کسب و کار شما</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">
+                با تیم حرفه‌ای ما، وبسایت خود را به یک ابزار قدرتمند برای رشد کسب و کار تبدیل کنید. طراحی منحصر به فرد، سئو پیشرفته و پشتیبانی 24 ساعته در خدمت شماست.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="request.html" class="btn" style="background: white; color: #2c3e50; padding: 1rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s;">
+                    درخواست طراحی سایت
+                </a>
+                <a href="consultation.html" class="btn" style="background: transparent; color: white; padding: 1rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 500; border: 2px solid white; transition: all 0.3s;">
+                    مشاوره رایگان
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact-section">
+        <div class="footer-top">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-text">
+                        <h4>آدرس ما</h4>
+                        <p>تهران</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-text">
+                        <h4>تماس با ما</h4>
+                        <p>۰۹۳۶۲۲۰۵۸۳۸</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-text">
+                        <h4>ایمیل ما</h4>
+                        <p>erfanbagherzadeh81@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-main">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="path-to-your-logo.png" alt="کدینو">
+                        <span class="logo-text">کدینو</span>
+                    </div>
+                    <p class="brand-description">ما در کدینو با ارائه بهترین قالب‌های وبسایت و خدمات طراحی سایت، به شما کمک می‌کنیم تا کسب و کار خود را به بهترین شکل در دنیای دیجیتال گسترش دهید.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>لینک‌های مفید</h3>
+                        <ul>
+                            <li><a href="#home">صفحه اصلی</a></li>
+                            <li><a href="#features">ویژگی‌ها</a></li>
+                            <li><a href="#templates">قالب‌ها</a></li>
+                            <li><a href="#demo">نمونه کارها</a></li>
+                            <li><a href="#about">درباره ما</a></li>
+                            <li><a href="#contact-section">درخواست سایت</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>دسترسی سریع</h3>
+                        <ul>
+                            <li><a href="#about">درباره ما</a></li>
+                            <li><a href="#portfolio">نمونه کارها</a></li>
+                            <li><a href="#services">خدمات ما</a></li>
+                            <li><a href="#team">تیم متخصص</a></li>
+                            <li><a href="#contact-section">تماس با ما</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>خبرنامه</h3>
+                    <p>برای دریافت آخرین اخبار و اطلاعات، در خبرنامه ما عضو شوید.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="آدرس ایمیل">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p class="copyright">© ۱۴۰۳ تمامی حقوق محفوظ است</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">صفحه اصلی</a>
+                    <a href="#">شرایط</a>
+                    <a href="#">حریم خصوصی</a>
+                    <a href="#">قوانین</a>
+                    <a href="#">تماس</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+        <span>حالت شب</span>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Show promotional box after 6 seconds
+        setTimeout(() => {
+            document.getElementById('promoBox').classList.add('show');
+        }, 6000);
+
+        // Close promotional box
+        document.getElementById('closePromo').addEventListener('click', function() {
+            document.getElementById('promoBox').classList.remove('show');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+      } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const icon = darkModeToggle.querySelector('i');
+        const text = darkModeToggle.querySelector('span');
+        const darkOverlay = document.querySelector('.dark-mode-overlay');
+        const lightOverlay = document.querySelector('.light-mode-overlay');
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            text.textContent = 'حالت روز';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            // Add active class for button animation
+            // Add active class for animation
+            darkModeToggle.classList.add('active');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                text.textContent = 'حالت روز';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                text.textContent = 'حالت شب';
+            }
+
+            // Remove active class after animation
+            setTimeout(() => {
+                darkModeToggle.classList.remove('active');
+            }, 500);
+        });
+  </script>
+
+    <!-- Consultation Popup -->
+    <div class="consultation-popup" id="consultationPopup">
+        <div class="consultation-form">
+            <button class="close-btn" id="closeConsultation">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="consultation-header">
+                <h3>مشاوره رایگان</h3>
+                <p>لطفاً اطلاعات خود را وارد کنید تا در اسرع وقت با شما تماس بگیریم</p>
+            </div>
+            <form id="consultationForm">
+                <div class="form-group">
+                    <label for="consultationName">نام و نام خانوادگی</label>
+                    <input type="text" id="consultationName" required>
+                </div>
+                <div class="form-group">
+                    <label for="consultationPhone">شماره تماس</label>
+                    <input type="tel" id="consultationPhone" required pattern="[0-9]{11}">
+                </div>
+                <div class="form-group">
+                    <label for="consultationType">نوع مشاوره</label>
+                    <select id="consultationType" required>
+                        <option value="">انتخاب کنید</option>
+                        <option value="website">طراحی وبسایت</option>
+                        <option value="seo">سئو و بهینه‌سازی</option>
+                        <option value="marketing">بازاریابی دیجیتال</option>
+                        <option value="other">سایر موارد</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="consultationMessage">توضیحات (اختیاری)</label>
+                    <textarea id="consultationMessage"></textarea>
+                </div>
+                <button type="submit" class="consultation-submit">ارسال درخواست</button>
+            </form>
+            <div class="consultation-success" id="consultationSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h3>درخواست شما ثبت شد</h3>
+                <p>کارشناسان ما به زودی با شما تماس خواهند گرفت</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Consultation Popup
+        const consultationLink = document.querySelector('a[href="#consultation"]');
+        const consultationPopup = document.getElementById('consultationPopup');
+        const closeConsultation = document.getElementById('closeConsultation');
+        const consultationForm = document.getElementById('consultationForm');
+        const consultationSuccess = document.getElementById('consultationSuccess');
+
+        consultationLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            consultationPopup.classList.add('active');
+        });
+
+        closeConsultation.addEventListener('click', () => {
+            consultationPopup.classList.remove('active');
+        });
+
+        consultationPopup.addEventListener('click', (e) => {
+            if (e.target === consultationPopup) {
+                consultationPopup.classList.remove('active');
+            }
+        });
+
+        consultationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            consultationForm.style.display = 'none';
+            consultationSuccess.style.display = 'block';
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                consultationPopup.classList.remove('active');
+                consultationForm.style.display = 'block';
+                consultationSuccess.style.display = 'none';
+                consultationForm.reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
+
